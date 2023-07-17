@@ -28,7 +28,8 @@ class User(db.Model,SerializerMixin):
 
     id = db.Column(db.Integer,primary_key=True)  
     name = db.Column(db.String)
-    mail_address= db.Column(db.String) 
+    mail_address= db.Column(db.String)
+    email_address = db.Column(db.String) 
 
     orders = db.relationship('Order', backref = 'user')
 
