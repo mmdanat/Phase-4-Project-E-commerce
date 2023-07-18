@@ -11,8 +11,8 @@ if __name__ == '__main__':
         Product.query.delete()
 
 
-        u1 = User(name = "Mary", mail_address = "123 street")
-        u2 = User(name = "Alice", mail_address = "456 street")
+        u1 = User(name = "Mary", mail_address = "123 street", email_address = 'hi@hi.com')
+        u2 = User(name = "Alice", mail_address = "456 street", email_address = 'bye@bye.com')
         users = [u1,u2]
 
         db.session.add_all(users)

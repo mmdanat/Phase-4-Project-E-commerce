@@ -4,7 +4,6 @@ from sqlalchemy_serializer import SerializerMixin
 from sqlalchemy.orm import validates
 import time
 
-#hi
 
 db = SQLAlchemy()
 
@@ -72,5 +71,5 @@ class OrderItem(db.Model,SerializerMixin):
      
 
 
-    def __repr__(self): 
-        return f'<Service Name {self.name}, Price ${self.price}>' 
+    # def __repr__(self): 
+    #     return f'<Service Name {self.name}, Price ${self.price}>' 
