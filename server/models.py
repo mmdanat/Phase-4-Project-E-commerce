@@ -64,12 +64,3 @@ class OrderItem(db.Model,SerializerMixin):
     serialize_rules = ('-product.order_items', '-order.order_items')
 
    
-
-
-
-
-     
-
-
-    def __repr__(self): 
-        return f'<Service Name {self.name}, Price ${self.price}>' 
