@@ -1,5 +1,5 @@
 import React from 'react';
-import { Route, Routes, useParams } from "react-router-dom";
+import { Route, Routes } from "react-router-dom";
 import { useEffect, useState } from "react";
 import ProductsPage from "./ProductsPage"
 import HomePage from "./HomePage"
@@ -7,8 +7,6 @@ import ProductDetails from './ProductDetails';
 
 function App() {
 
-    const params = useParams();
-    const [ productId, setProductId ] = useState({})
     const [products, setProducts] = useState([])
     // eslint-disable-next-line
     const [users, setUsers] = useState([])

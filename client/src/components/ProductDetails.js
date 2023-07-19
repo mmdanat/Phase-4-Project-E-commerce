@@ -8,10 +8,10 @@ function ProductDetails( ) {
     const [ productId, setProductId ] = useState({})
 
     useEffect(()=>{
-        fetch(`http://localhost:3001/movies/${params.productId}`)
+        fetch(`http://localhost:5555/products/${params.productId}`)
             .then(resp=> resp.json())
             .then(productId => setProductId(productId))
-    },[])
+    })
 
     return(
         <div className= "container">
