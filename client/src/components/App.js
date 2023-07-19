@@ -2,6 +2,7 @@ import React from 'react';
 import { Route, Routes } from "react-router-dom";
 import { useEffect,useState } from "react";
 import ItemsPage from "./ItemsPage"
+import CartReview from './CartReview';
 
 
 
@@ -29,6 +30,7 @@ function App() {
 
       <ItemsPage products={products}/>
       <CustomerInfo users = {users}/>
+      <CartReview products = {products}/>
       {/* <Routes>
          <Route exact path = '/' element = {<M />} />
          <Route path = '/' element = { <M/> } />
