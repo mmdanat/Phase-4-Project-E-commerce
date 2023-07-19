@@ -11,6 +11,7 @@ if __name__ == '__main__':
         OrderItem.query.delete()
         Product.query.delete()
 
+        # Seed users
         u1 = User(name = "Mary", mail_address = "123 street", email_address = 'hi@hi.com')
         u2 = User(name = "Alice", mail_address = "456 street", email_address = 'bye@bye.com')
         users = [u1,u2]

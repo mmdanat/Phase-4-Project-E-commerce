@@ -131,13 +131,14 @@ class OrderItemsById(Resource):
             200
         )
 
+        return response
+
 api.add_resource(OrderItemsById, '/order_items/<int:id>')
 
 class User_two(Resource):
     def get(self):
         users = User.query.all()
 
-        print()
         user_dict = [user.to_dict(rules = ('-orders', )) for user in users]
 
         response = make_response(
@@ -149,6 +150,7 @@ class User_two(Resource):
 
     def post(self):
         data = request.get_json()
+        
         try:
             new_user = User(
                 name = data['name'],
@@ -185,8 +187,11 @@ def user():
                 200
             )
 
+            return response
+
         elif request.method == 'PATCH':
             data = request.get_json()
+            
             try:
                 for key in data:
                     setattr(user, key, data[key])
@@ -205,6 +210,8 @@ def user():
                     {"errors":["validation errors"]},
                     400
                 )
+            
+            return response
 
         elif request.method == "POST":
             pass
