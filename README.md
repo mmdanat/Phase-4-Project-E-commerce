@@ -12,3 +12,8 @@
         flask db revision --autogenerate -m "Create table <table name>"
         flask db upgrade
         python seed.py
+
+    Run front-end React:
+
+        Run at level above server:
+        npm start --prefix client
