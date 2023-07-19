@@ -17,7 +17,6 @@ function App() {
         .then(resp => resp.json())
         .then(products => setProducts(products))
     },[])
-    console.log(products)
 
     useEffect(() =>{
         fetch("http://localhost:5555/users")
@@ -32,12 +31,9 @@ function App() {
         <Routes>
             <Route path = '/home' element = {<HomePage />} />
             <Route path = '/products' element = {<ProductsPage products={products}/> }/>
-            <Route path = '/products/:productId' element = {<ProductDetails />} />
+            <Route path = '/detail/:productId' element = {<ProductDetails />} />
 
         </Routes>
-        {/* <ProductDetails products={products}/> */}
-        
-        {/* <ProductCollection products={products}/> */}
         </div>
         )
     }

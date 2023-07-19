@@ -2,13 +2,10 @@ import ProductCard from "./ProductCard"
 
 function ProductCollection({ products, searchTerm }){
         
-    console.log(searchTerm)
-
     const filteredProducts = products.filter((product) => {
         return product.name.toLowerCase().includes(searchTerm.toLowerCase())
     })
-    // console.log(filteredProducts)
-
+   
     const renderProductsToCards = filteredProducts.map((product)=>
         <ProductCard
             key = {product.id}

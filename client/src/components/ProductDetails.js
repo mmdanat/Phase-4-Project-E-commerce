@@ -11,7 +11,7 @@ function ProductDetails( ) {
         fetch(`http://localhost:5555/products/${params.productId}`)
             .then(resp=> resp.json())
             .then(productId => setProductId(productId))
-    })
+    }, [params.productId])
 
     return(
         <div className= "container">
