@@ -2,6 +2,7 @@ from flask import Flask, jsonify, make_response, request, abort
 from flask_migrate import Migrate
 from models import db, OrderItem, User, Order, Product
 from flask_restful import Api, Resource
+from flask_cors import CORS
 
 app = Flask(__name__)
 
@@ -13,6 +14,8 @@ migrate = Migrate(app, db)
 db.init_app(app)
 
 api= Api(app)
+
+CORS(app)
 
 @app.route('/') 
 def index(): 
@@ -176,7 +179,7 @@ class User_two(Resource):
 
 api.add_resource(User_two, '/users')
 
-@app.route('/users', methods=['GET', 'PATCH', 'POST'])
+@app.route('/users', methods=['GET', 'PATCH'])
 def user():
     if user:
         if request.method == 'GET':
@@ -212,9 +215,6 @@ def user():
                 )
             
             return response
-
-        elif request.method == "POST":
-            pass
 
 if __name__ == '__main__':
     app.run(port=5555, debug=True)
