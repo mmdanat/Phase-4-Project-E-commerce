@@ -2,6 +2,7 @@ from flask import Flask, jsonify, make_response, request, abort
 from flask_migrate import Migrate
 from models import db, OrderItem, User, Order, Product
 from flask_restful import Api, Resource
+from flask_cors import CORS
 
 app = Flask(__name__)
 
@@ -13,6 +14,8 @@ migrate = Migrate(app, db)
 db.init_app(app)
 
 api= Api(app)
+
+CORS(app)
 
 @app.route('/') 
 def index(): 
@@ -40,6 +43,13 @@ class ProductsbyID(Resource):
 api.add_resource(ProductsbyID,'/products/<int:id>')
 
 class Orders(Resource):
+    def get(self):
+        orders_list = [order.to_dict() for order in Order.query.all()]
+
+        response = make_response(orders_list, 200)
+
+        return response
+    
     def post(self):
 
         # try:
