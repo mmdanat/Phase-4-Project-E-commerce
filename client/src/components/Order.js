@@ -1,5 +1,6 @@
 import { useState } from "react";
 import OrderItem from "./OrderItem";
+import ShoppingCart from "./ShoppingCart";
 
 function Order({ id, user_id, order_items, handleClick }) {
 
@@ -46,6 +47,7 @@ function Order({ id, user_id, order_items, handleClick }) {
             <button id={id} className="mr-2 p-2 rounded text-white bg-black" onClick = {() => handleDelete(id)}>Cancel Order</button>
             </div>
             <div className="m-5 flex justify-between" >{showOrderItems ? [renderOrderItems] : ''}</div>
+            <ShoppingCart />
         </div>
     )
 }

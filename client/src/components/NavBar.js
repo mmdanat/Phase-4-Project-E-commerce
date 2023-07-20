@@ -5,9 +5,10 @@ function NavBar(){
         <div className = "navbar">
             WaterWorld
             <ul >
-                <li><NavLink to="/home">Home</NavLink></li>  
+                <li><NavLink to="/">Home</NavLink></li>  
                 <li><NavLink to="/products">Products</NavLink></li>                
-                {/* <li><NavLink to="/checkout">Cart</NavLink></li>                  */}
+                {/* <li><NavLink to="/checkout">Cart</NavLink></li>   */}
+                <li><NavLink to="/users/new">Become a Memeber</NavLink></li>                
                 <li><NavLink to="/orders">Orders</NavLink></li>               
             </ul>
 

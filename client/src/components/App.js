@@ -14,9 +14,7 @@ function App() {
     const [products, setProducts] = useState([])
     // eslint-disable-next-line
     const [users, setUsers] = useState([])
-    // const params = useParams();
     const [ orders, setOrders ] = useState([])
-
     const [ order_items, setOrderItems ] = useState([])
     // const [ productId, setProductId ] = useState({})
    
@@ -59,12 +57,13 @@ function App() {
             <Route path = '/products' element = {<ProductsPage products={products}/> }/>
             <Route path = '/detail/:productId' element = {<ProductDetails />} />
             <Route path = '/orders' element = {<ModifyOrder orders={orders} order_items={order_items} />} />
+            <Route path = '/users/new' element = {<CustomerInfo addUser = {addUser} />} />
         </Routes>
         </div>
         )
     }
     else{
-        return <h1>loading</h1>
+        return <h1>loading...</h1>
     }
 }
     

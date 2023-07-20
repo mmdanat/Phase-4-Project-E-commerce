@@ -1,79 +1,42 @@
-// import { useState } from 'react'
-// import { useNavigate } from 'react-router-dom'
-// import { useFormik } from 'formik';
-// // import { object, string, number } from 'yup'
-
-// function CustomerInfo({addUser}){
-
-//     const formik = useFormik({
-//         initalValues: {
-//             name: '',
-//             email_address:''
-//         },
-//         onSubmit:(values) =>{
-//             alert(JSON.stringify(values, null, 2));
-//         }
-//     })
-
-    
-//     return(
-//         <div>
-//             <form className ="Customer-Info-Form" onSubmit = {formik.handleSubmit}>
-
-//                 <div className ="form-group">
-//                     <label>Name</label>
-//                     <input
-//                         type = "text"
-//                         name = "name"
-//                         value = {formik.values.name}
-//                         onChange={formik.handleChange}
-//                         />
-//                 </div>
-
-//                 <div className ="form-group">
-//                     <label>Email Address</label>
-//                     <input
-//                         type = "text"
-//                         name = "email_address"
-//                         value = {formik.values.email_address}
-//                         onChange={formik.handleChange}
-//                         />
-//                 </div>
-
-//                 <input type="submit" name= "button"> Submit your Info</input>
-
-//              </form>
-
-//         </div>
-//     )
-// }
-
-
 
 import React from 'react';
 import { useFormik } from 'formik';
+import { useNavigate } from 'react-router-dom'
 
-const CustomerInfo = () => {
-  const formik = useFormik({
+const CustomerInfo = ({addUser}) => {
+    const navigate =useNavigate()
+    const formik = useFormik({
     initialValues: {
       name:'',
       email: '',
     },
     onSubmit: values => {
-      alert(JSON.stringify(values, null, 2));
-      //make this a post TODO;
-    },
+        fetch("http://localhost:5555/users",{
+            method: "POST",
+            headers: {
+                "Content-Type":"application/json"
+            },
+            body: JSON.stringify(values)
+        })
+            .then(resp => resp.json())
+            .then(user =>{
+                addUser(user)
+                navigate('/products')
+
+            })
+      
+    } 
   });
   return (
     <form onSubmit={formik.handleSubmit}>
         <div>
         <label htmlFor="email">Email Address</label>
         <input
-            id="email"
-            name="email"
-            type="email"
+            id="email_address"
+            name="email_address"
+            type="email_address"
             onChange={formik.handleChange}
-            value={formik.values.email}
+            value={formik.values.email_address}
         />
         
         <label htmlFor="name">Name</label>
@@ -83,6 +46,15 @@ const CustomerInfo = () => {
             type="name"
             onChange={formik.handleChange}
             value={formik.values.name}
+        />
+
+        <label htmlFor="name">Mail Address</label>
+        <input
+            id="mail_address"
+            name="mail_address"
+            type="mail_address"
+            onChange={formik.handleChange}
+            value={formik.values.mail_address}
         />
 
         </div>
