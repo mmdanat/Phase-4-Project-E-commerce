@@ -102,23 +102,32 @@ class OrderItems(Resource):
         return response
 
     def post(self):
-        request_json = request.get_json()
 
-        new_order_item = OrderItem(
-            quantity=request_json['quantity'], 
-            order_id=request_json['order_id'], 
-            product_id=request_json['product_id']
+        try:
+            request_json = request.get_json()
+
+            new_order_item = OrderItem(
+                quantity=request_json['quantity'], 
+                order_id=request_json['order_id'], 
+                product_id=request_json['product_id']
+                )
+
+            db.session.add(new_order_item)
+
+            db.session.commit()
+
+            response = make_response(
+                new_order_item.to_dict(), 201
             )
 
-        db.session.add(new_order_item)
+            return response
+        except ValueError:
 
-        db.session.commit()
+            response = make_response('quantity can not be negative',400
+            )
 
-        response = make_response(
-            new_order_item.to_dict(), 201
-        )
+            return response
 
-        return response
 
 api.add_resource(OrderItems, '/order_items')
 

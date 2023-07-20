@@ -1,5 +1,6 @@
 import { useState } from "react";
 import OrderItem from "./OrderItem";
+import ShoppingCart from "./ShoppingCart";
 
 function Order({ id, user_id, order_items, handleClick }) {
 
@@ -34,6 +35,7 @@ function Order({ id, user_id, order_items, handleClick }) {
             </ul>
             <button id={id} onClick={handleClick}>Display Items</button>
             {showOrderItems ? [renderOrderItems] : ""}
+            <ShoppingCart />
         </div>
     )
 }

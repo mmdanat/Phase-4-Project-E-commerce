@@ -31,6 +31,8 @@ class User(db.Model,SerializerMixin):
     mail_address= db.Column(db.String)
     email_address = db.Column(db.String) 
 
+    
+
     # Relationships
     orders = db.relationship('Order', backref = 'user')
 
@@ -60,6 +62,13 @@ class OrderItem(db.Model,SerializerMixin):
     quantity = db.Column(db.Integer)
     order_id = db.Column(db.Integer, db.ForeignKey('orders.id'))
     product_id = db.Column(db.Integer, db.ForeignKey('products.id'))
+
+    @validates('quantity')
+    def validates_quantity(self,key,quantity):
+        if not isinstance(quantity,int) and quantity < 0:
+            raise ValueError('quantity must be a number')
+        return quantity
+      
 
     # Serialization rules
     serialize_rules = ('-product.order_items', '-order.order_items')
