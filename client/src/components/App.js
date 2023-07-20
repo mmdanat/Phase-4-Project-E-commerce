@@ -1,5 +1,5 @@
 import React from 'react';
-import { Route, Routes, useParams } from "react-router-dom";
+import { Route, Routes } from "react-router-dom";
 import { useEffect, useState } from "react";
 import ProductsPage from "./ProductsPage"
 import HomePage from "./HomePage"
@@ -7,8 +7,6 @@ import ProductDetails from './ProductDetails';
 
 function App() {
 
-    const params = useParams();
-    const [ productId, setProductId ] = useState({})
     const [products, setProducts] = useState([])
     // eslint-disable-next-line
     const [users, setUsers] = useState([])
@@ -19,7 +17,6 @@ function App() {
         .then(resp => resp.json())
         .then(products => setProducts(products))
     },[])
-    console.log(products)
 
     useEffect(() =>{
         fetch("http://localhost:5555/users")
@@ -34,12 +31,9 @@ function App() {
         <Routes>
             <Route path = '/home' element = {<HomePage />} />
             <Route path = '/products' element = {<ProductsPage products={products}/> }/>
-            <Route path = '/products/:productId' element = {<ProductDetails />} />
+            <Route path = '/detail/:productId' element = {<ProductDetails />} />
 
         </Routes>
-        {/* <ProductDetails products={products}/> */}
-        
-        {/* <ProductCollection products={products}/> */}
         </div>
         )
     }
