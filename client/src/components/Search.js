@@ -1,6 +1,6 @@
 import React from "react";
 
-function SearchBar ({ handleSearch }) {
+function Search ({ handleSearch }) {
     return (
         <div className="search">
             
@@ -13,4 +13,4 @@ function SearchBar ({ handleSearch }) {
     )
 }
  
-export default SearchBar;
+export default Search;

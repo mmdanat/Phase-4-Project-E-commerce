@@ -1,5 +1,5 @@
 import ProductCard from "./ProductCard"
-import SearchBar from "./ SearchBar";
+import Search from "./Search";
 import { useState } from "react";
 
 
@@ -12,13 +12,10 @@ function ProductCollection({ products}){
         setSearchTerm(e.target.searchTerm.value)
     }
         
-    console.log(searchTerm)
-
     const filteredProducts = products.filter((product) => {
         return product.name.toLowerCase().includes(searchTerm.toLowerCase())
     })
-    // console.log(filteredProducts)
-
+   
     const renderProductsToCards = filteredProducts.map((product)=>
         <ProductCard
             key = {product.id}
@@ -31,7 +28,7 @@ function ProductCollection({ products}){
     
     return(
         <ul className = "cards">
-            <SearchBar handleSearch = {handleSearch}/>
+            {/* <Search handleSearch = {handleSearch}/> */}
             {renderProductsToCards}
         </ul>
     )

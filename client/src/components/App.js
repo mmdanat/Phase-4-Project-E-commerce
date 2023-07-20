@@ -14,10 +14,12 @@ import NavBar from './NavBar';
 
 function App() {
 
+    const [products, setProducts] = useState([])
+    // eslint-disable-next-line
+    const [users, setUsers] = useState([])
     // const params = useParams();
     // const [ productId, setProductId ] = useState({})
-    const [products, setProducts] = useState([]) 
-    const [users, setUsers] = useState([])
+   
   
     
 
@@ -26,7 +28,6 @@ function App() {
         .then(resp => resp.json())
         .then(products => setProducts(products))
     },[])
-    console.log(products)
 
     useEffect(() =>{
         fetch("http://localhost:5555/users")
@@ -45,18 +46,11 @@ function App() {
         <NavBar/>
         
         <Routes>
-            <Route path = '/home' element = {<HomePage />} />
-            <Route path = '/products' element = {<ProductsPage products={products} /> }/>
-            <Route path = '/products/:productId' element = {<ProductDetails />} />
-            <Route path = '/customer' element = {<CustomerInfo addUser = {addUser} />} />
+            <Route exact path = '/' element = {<HomePage />} />
+            <Route path = '/products' element = {<ProductsPage products={products}/> }/>
+            <Route path = '/detail/:productId' element = {<ProductDetails />} />
 
         </Routes>
-       
-        {/* <CustomerInfo users = {users}/> */}
-        <CartReview products = {products}/>
-        {/* <ProductDetails products={products}/> */}
-        
-        {/* <ProductCollection products={products}/> */}
         </div>
         )
     }
