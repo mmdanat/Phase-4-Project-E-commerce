@@ -15,15 +15,10 @@ function App() {
     const [products, setProducts] = useState([])
     // eslint-disable-next-line
     const [users, setUsers] = useState([])
-    // const params = useParams();
     const [ orders, setOrders ] = useState([])
-
     const [ order_items, setOrderItems ] = useState([])
     // const [ productId, setProductId ] = useState({})
    
-  
-    
-
     useEffect(() =>{
         fetch("http://localhost:5555/products")
         .then(resp => resp.json())
@@ -69,7 +64,7 @@ function App() {
         )
     }
     else{
-        return <h1>loading</h1>
+        return <h1>loading...</h1>
     }
 }
     

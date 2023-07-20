@@ -1,9 +1,7 @@
 import ProductCard from "./ProductCard"
 
-
-
-function ProductCollection({ products,searchTerm,setCart,cart}){
-   
+function ProductCollection({ products, searchTerm }){
+        
     const filteredProducts = products.filter((product) => {
         return product.name.toLowerCase().includes(searchTerm.toLowerCase())
     })
@@ -19,8 +17,7 @@ function ProductCollection({ products,searchTerm,setCart,cart}){
     )
     
     return(
-        <ul className = "cards">
-           
+        <ul className = "cards flex flex-wrap">
             {renderProductsToCards}
             
         </ul>

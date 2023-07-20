@@ -3,8 +3,8 @@ import React from 'react';
 
 function HomePage(){
     return(
-        <div>
-            <h1>Welcome to Water World!</h1>
+        <div className = "bg-green-300">
+            <h1 className="text-3xl font-bold underline">Welcome to Water World!</h1>
             <p>Thanks for stopping in, we are local to Colorado area and here to give you access to the water you need!</p>
             <h2>Our Story</h2>
             <p>We started due to a decrease in water supply and a need for regulation of avaliable water in the Colordo River.</p>
