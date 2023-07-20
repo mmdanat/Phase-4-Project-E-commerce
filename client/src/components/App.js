@@ -5,6 +5,13 @@ import ProductsPage from "./ProductsPage"
 import HomePage from "./HomePage"
 import ProductDetails from './ProductDetails';
 import ModifyOrder from './ModifyOrder'
+import CartReview from './CartReview';
+import CustomerInfo from './CustomerInfo';
+import NavBar from './NavBar';
+
+
+
+
 
 function App() {
 
@@ -15,6 +22,10 @@ function App() {
     const [ orders, setOrders ] = useState([])
 
     const [ order_items, setOrderItems ] = useState([])
+    // const [ productId, setProductId ] = useState({})
+   
+  
+    
 
     useEffect(() =>{
         fetch("http://localhost:5555/products")
@@ -27,6 +38,10 @@ function App() {
         .then(resp => resp.json())
         .then(users => setUsers(users))
     },[])
+
+    const addUser = (user) => {
+        setUsers(users => [...users,user])
+    }
 
     useEffect(() => {
         fetch('http://localhost:5555/orders')
@@ -44,6 +59,8 @@ function App() {
 
         return (
         <div className = "body">
+        <NavBar/>
+        
         <Routes>
             <Route path = '/' element = {<HomePage />} />
             <Route path = '/products' element = {<ProductsPage products={products}/> }/>
