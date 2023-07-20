@@ -29,7 +29,7 @@ if __name__ == '__main__':
 
         # Seed orders
         order1 = Order(user_id = u1.id)
-        order2 = Order(user_id = u1.id)
+        order2 = Order(user_id = u2.id)
         orders = [order1,order2]
 
         db.session.add_all(orders)
@@ -38,7 +38,8 @@ if __name__ == '__main__':
         # Seed order items
         orderitem = OrderItem(order_id = order1.id, product_id = product1.id, quantity = 5)
         orderitem2 = OrderItem(order_id = order2.id, product_id = product2.id, quantity = 6)
-        orderitems = [orderitem,orderitem2]
+        orderitem3 = OrderItem(order_id = order1.id, product_id = product2.id, quantity = 5)
+        orderitems = [orderitem,orderitem2,orderitem3]
 
         db.session.add_all(orderitems)
         db.session.commit()

@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import ProductsPage from "./ProductsPage"
 import HomePage from "./HomePage"
 import ProductDetails from './ProductDetails';
+import ModifyOrder from './ModifyOrder'
 
 function App() {
 
@@ -11,6 +12,9 @@ function App() {
     // eslint-disable-next-line
     const [users, setUsers] = useState([])
     // const params = useParams();
+    const [ orders, setOrders ] = useState([])
+
+    const [ order_items, setOrderItems ] = useState([])
 
     useEffect(() =>{
         fetch("http://localhost:5555/products")
@@ -24,15 +28,27 @@ function App() {
         .then(users => setUsers(users))
     },[])
 
+    useEffect(() => {
+        fetch('http://localhost:5555/orders')
+        .then(resp => resp.json())
+        .then(orders => setOrders(orders))
+    }, [])
+
+    useEffect(() => {
+        fetch('http://localhost:5555/order_items')
+        .then(resp => resp.json())
+        .then(order_items => setOrderItems(order_items))
+    },[])
+
     if (products.length > 0){
 
         return (
         <div className = "body">
         <Routes>
-            <Route path = '/home' element = {<HomePage />} />
+            <Route path = '/' element = {<HomePage />} />
             <Route path = '/products' element = {<ProductsPage products={products}/> }/>
             <Route path = '/detail/:productId' element = {<ProductDetails />} />
-
+            <Route path = '/orders' element = {<ModifyOrder orders={orders} order_items={order_items} />} />
         </Routes>
         </div>
         )
