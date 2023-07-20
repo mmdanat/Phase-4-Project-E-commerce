@@ -13,6 +13,14 @@ function Order({ id, user_id, order_items, handleClick }) {
         setOrderItemsId((orderItemsId) => e.target.id)
     }
 
+    function handleDelete(id) {
+        fetch(`http://localhost:5555/orders/${id}`, {
+            method: 'DELETE'
+        })
+        .then(resp => resp.json())
+        .then(window.location.reload())
+    }
+
     const filteredOrderItems = order_items.filter((order) => {
         if (order.order.id == orderItemsId)
             return order
@@ -26,15 +34,19 @@ function Order({ id, user_id, order_items, handleClick }) {
             quantity={order_item.quantity}
         />
     )
+
 // ADD BUTTON FOR DELETING ORDER
     return (
-        <div className="m-5 block justify-between" >
+        <div>
+            <div className="m-5 flex justify-between" >
             <ul>
                 <li>Order #: {id}</li>
                 <li>Ordered by: {user_id}</li>
             </ul>
-            <button id={id} onClick={handleClick}>Display Items</button>
-            {showOrderItems ? [renderOrderItems] : ""}
+            <button id={id} className="mr-2 p-2 rounded text-white bg-black" onClick={handleClick}>Display Items</button>
+            <button id={id} className="mr-2 p-2 rounded text-white bg-black" onClick = {() => handleDelete(id)}>Cancel Order</button>
+            </div>
+            <div className="m-5 flex justify-between" >{showOrderItems ? [renderOrderItems] : ''}</div>
             <ShoppingCart />
         </div>
     )

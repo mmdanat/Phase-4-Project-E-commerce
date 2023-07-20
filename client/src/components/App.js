@@ -9,7 +9,6 @@ import CartReview from './CartReview';
 import CustomerInfo from './CustomerInfo';
 import NavBar from './NavBar';
 
-
 function App() {
 
     const [products, setProducts] = useState([])

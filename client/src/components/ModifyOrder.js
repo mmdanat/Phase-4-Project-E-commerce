@@ -10,9 +10,12 @@ function ModifyOrder({ orders, order_items }) {
 
     function handleSearch(e) {
         e.preventDefault()
+
+        console.log(e.target.searchTerm.value)
         
         setSearchTerm(e.target.searchTerm.value)
     }
+
 
     const filteredOrders = orders.filter((order) => {
         return order.user.email_address.toLowerCase().includes(searchTerm.toLowerCase())
@@ -31,7 +34,6 @@ function ModifyOrder({ orders, order_items }) {
         <div>
             <Search handleSearch={handleSearch} />
             <div>{renderOrders}</div>
-            {/* <div>{renderOrderItems}</div> */}
         </div>
     )
 }
