@@ -1,17 +1,9 @@
 import ProductCard from "./ProductCard"
-import Search from "./Search";
-import { useState } from "react";
 
 
-function ProductCollection({ products}){
-    const [ searchTerm, setSearchTerm ] = useState("")
 
-    function handleSearch(e) {
-        e.preventDefault()
-        
-        setSearchTerm(e.target.searchTerm.value)
-    }
-        
+function ProductCollection({ products,searchTerm}){
+   
     const filteredProducts = products.filter((product) => {
         return product.name.toLowerCase().includes(searchTerm.toLowerCase())
     })
@@ -28,7 +20,7 @@ function ProductCollection({ products}){
     
     return(
         <ul className = "cards">
-            {/* <Search handleSearch = {handleSearch}/> */}
+           
             {renderProductsToCards}
         </ul>
     )
