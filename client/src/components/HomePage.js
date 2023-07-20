@@ -3,8 +3,8 @@ import React from 'react';
 
 function HomePage(){
     return(
-        <div>
-            <h1>Welcome to our website!</h1>
+        <div className = "bg-green-300">
+            <h1 className="text-3xl font-bold underline">Welcome to our website!</h1>
             <p>Paragraph explaining the website!</p>
         </div>
     )
