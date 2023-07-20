@@ -50,7 +50,7 @@ function App() {
 
         return (
         <div className = "body">
-        <NavBar/>
+        {/* <NavBar/> */}
         
         <Routes>
             <Route path = '/' element = {<HomePage />} />

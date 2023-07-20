@@ -2,6 +2,7 @@
 import React from 'react';
 import { useFormik } from 'formik';
 import { useNavigate } from 'react-router-dom'
+import NavBar from './NavBar';
 
 const CustomerInfo = ({addUser}) => {
     const navigate =useNavigate()
@@ -28,8 +29,10 @@ const CustomerInfo = ({addUser}) => {
     } 
   });
   return (
+    
     <form onSubmit={formik.handleSubmit}>
         <div>
+        <NavBar/>
         <label htmlFor="email">Email Address</label>
         <input
             id="email_address"
