@@ -2,6 +2,7 @@ import React from 'react';
 import ProductCollection from './ProductCollection';
 import { useState } from "react";
 import Search from './Search';
+import NavBar from './NavBar';
 
 
 function ProductsPage({ products }){
@@ -19,7 +20,8 @@ function ProductsPage({ products }){
 
 
     return (
-        <div className='product-page inline'>
+        <div className='product-page '>
+            <NavBar/>
             <Search handleSearch={handleSearch} />
             <ProductCollection products={products} searchTerm={searchTerm} /> 
         </div>
