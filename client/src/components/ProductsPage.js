@@ -16,7 +16,7 @@ function ProductsPage({ products }){
     return (
         <div className='product-page'>
             <Search handleSearch={handleSearch} />
-            <ProductCollection products={products} searchTerm={searchTerm}/>
+             <ProductCollection products={products} searchTerm={searchTerm} /> 
         </div>
     )
 }

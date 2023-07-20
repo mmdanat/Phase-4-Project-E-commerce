@@ -16,7 +16,6 @@ db.init_app(app)
 api= Api(app)
 
 CORS(app)
-
 @app.route('/') 
 def index(): 
     return '<h1>Hello World</h1>'
