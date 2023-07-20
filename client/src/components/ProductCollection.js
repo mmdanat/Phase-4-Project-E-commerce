@@ -2,7 +2,7 @@ import ProductCard from "./ProductCard"
 
 
 
-function ProductCollection({ products,searchTerm}){
+function ProductCollection({ products,searchTerm,setCart,cart}){
    
     const filteredProducts = products.filter((product) => {
         return product.name.toLowerCase().includes(searchTerm.toLowerCase())
@@ -22,6 +22,7 @@ function ProductCollection({ products,searchTerm}){
         <ul className = "cards">
            
             {renderProductsToCards}
+            
         </ul>
     )
 }

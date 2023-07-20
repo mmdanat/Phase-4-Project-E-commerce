@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 
 
 
-function CartReview({products,users}){
+function CartReview({}){
 
     // const [button , setButton] = useState(true)
     

@@ -10,9 +10,6 @@ import CustomerInfo from './CustomerInfo';
 import NavBar from './NavBar';
 
 
-
-
-
 function App() {
 
     const [products, setProducts] = useState([])
@@ -66,6 +63,7 @@ function App() {
             <Route path = '/products' element = {<ProductsPage products={products}/> }/>
             <Route path = '/detail/:productId' element = {<ProductDetails />} />
             <Route path = '/orders' element = {<ModifyOrder orders={orders} order_items={order_items} />} />
+            <Route path = '/users/new' element = {<CustomerInfo addUser = {addUser} />} />
         </Routes>
         </div>
         )
