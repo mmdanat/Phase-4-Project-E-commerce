@@ -29,7 +29,7 @@ function App() {
         return (
         <div className = "body">
         <Routes>
-            <Route path = '/home' element = {<HomePage />} />
+            <Route exact path = '/' element = {<HomePage />} />
             <Route path = '/products' element = {<ProductsPage products={products}/> }/>
             <Route path = '/detail/:productId' element = {<ProductDetails />} />
 

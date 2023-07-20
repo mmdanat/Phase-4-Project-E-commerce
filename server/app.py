@@ -140,14 +140,9 @@ api.add_resource(OrderItemsById, '/order_items/<int:id>')
 
 class User_two(Resource):
     def get(self):
-        users = User.query.all()
+        user_dict = [user.to_dict() for user in User.query.all()]
 
-        user_dict = [user.to_dict(rules = ('-orders', )) for user in users]
-
-        response = make_response(
-            jsonify(user_dict),
-            200
-        )
+        response = make_response(user_dict, 200)
 
         return response
 
