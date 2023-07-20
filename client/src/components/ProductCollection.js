@@ -1,6 +1,16 @@
 import ProductCard from "./ProductCard"
+import SearchBar from "./ SearchBar";
+import { useState } from "react";
 
-function ProductCollection({ products, searchTerm }){
+
+function ProductCollection({ products}){
+    const [ searchTerm, setSearchTerm ] = useState("")
+
+    function handleSearch(e) {
+        e.preventDefault()
+        
+        setSearchTerm(e.target.searchTerm.value)
+    }
         
     console.log(searchTerm)
 
@@ -21,6 +31,7 @@ function ProductCollection({ products, searchTerm }){
     
     return(
         <ul className = "cards">
+            <SearchBar handleSearch = {handleSearch}/>
             {renderProductsToCards}
         </ul>
     )

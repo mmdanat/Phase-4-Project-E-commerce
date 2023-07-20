@@ -1,22 +1,25 @@
 import React from 'react';
-import { Route, Routes, useParams } from "react-router-dom";
+import { Route, Routes } from "react-router-dom";
 import { useEffect, useState } from "react";
 import ProductsPage from "./ProductsPage"
 import HomePage from "./HomePage"
 import ProductDetails from './ProductDetails';
-import ItemsPage from "./ItemsPage"
 import CartReview from './CartReview';
+import CustomerInfo from './CustomerInfo';
+import NavBar from './NavBar';
+
+
 
 
 
 function App() {
 
-    const params = useParams();
-    const [ productId, setProductId ] = useState({})
-    const [products, setProducts] = useState([])
-    // eslint-disable-next-line
-    const [users, setUsers] = useState([])
     // const params = useParams();
+    // const [ productId, setProductId ] = useState({})
+    const [products, setProducts] = useState([]) 
+    const [users, setUsers] = useState([])
+  
+    
 
     useEffect(() =>{
         fetch("http://localhost:5555/products")
@@ -31,18 +34,25 @@ function App() {
         .then(users => setUsers(users))
     },[])
 
+    const addUser = (user) => {
+        setUsers(users => [...users,user])
+    }
+
     if (products.length > 0){
 
         return (
         <div className = "body">
+        <NavBar/>
+        
         <Routes>
             <Route path = '/home' element = {<HomePage />} />
-            <Route path = '/products' element = {<ProductsPage products={products}/> }/>
+            <Route path = '/products' element = {<ProductsPage products={products} /> }/>
             <Route path = '/products/:productId' element = {<ProductDetails />} />
+            <Route path = '/customer' element = {<CustomerInfo addUser = {addUser} />} />
 
         </Routes>
-        <ItemsPage products={products}/>
-        <CustomerInfo users = {users}/>
+       
+        {/* <CustomerInfo users = {users}/> */}
         <CartReview products = {products}/>
         {/* <ProductDetails products={products}/> */}
         

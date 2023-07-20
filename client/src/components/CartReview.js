@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import ItemDetails from './ItemDetails'
+
 
 
 function CartReview({products,users}){
@@ -19,33 +19,33 @@ function CartReview({products,users}){
     //     description = {product.product_description}
     // />)
 
-    function handleClick(){ //not sure if I need to post to Order as well???
+    // function handleClick(){ //not sure if I need to post to Order as well???
 
-        useEffect(() =>{
-            fetch("http://localhost:5555/order_items",{
-                method:"POST",
-                headers: {
-                    "Content-Type": "application/json",
-                    "Accept": "application/json"
-            },
-                body: JSON.stringify({ 
-                    quantity: quantity, 
-                    product_id: product_id,
-                    order_id:order_id })
+    //     useEffect(() =>{
+    //         fetch("http://localhost:5555/order_items",{
+    //             method:"POST",
+    //             headers: {
+    //                 "Content-Type": "application/json",
+    //                 "Accept": "application/json"
+    //         },
+    //             body: JSON.stringify({ 
+    //                 quantity: quantity, 
+    //                 product_id: product_id,
+    //                 order_id:order_id })
 
-            })
-            .then(resp => resp.json())
-            .then(products=> setProducts(products)) //not sure where to set the state 
-            .then(error=> console.log(error))
-        })
+    //         })
+    //         .then(resp => resp.json())
+    //         .then(products=> setProducts(products)) //not sure where to set the state 
+    //         .then(error=> console.log(error))
+    //     })
 
-    }
+    // }
 
     return (
 
         <div className = "products">
-            {renderProductToCard}
-            <button onClick = {handleClick}>PlaceOrder</button>
+            {/* {renderProductToCard} */}
+            {/* <button onClick = {handleClick}>PlaceOrder</button> */}
 
         </div>
     )
