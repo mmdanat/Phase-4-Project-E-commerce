@@ -9,10 +9,6 @@ import CartReview from './CartReview';
 import CustomerInfo from './CustomerInfo';
 import NavBar from './NavBar';
 
-
-
-
-
 function App() {
 
     const [products, setProducts] = useState([])
@@ -24,9 +20,6 @@ function App() {
     const [ order_items, setOrderItems ] = useState([])
     // const [ productId, setProductId ] = useState({})
    
-  
-    
-
     useEffect(() =>{
         fetch("http://localhost:5555/products")
         .then(resp => resp.json())

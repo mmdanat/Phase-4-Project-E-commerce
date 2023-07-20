@@ -16,6 +16,7 @@ db.init_app(app)
 api= Api(app)
 
 CORS(app)
+
 @app.route('/') 
 def index(): 
     return '<h1>Hello World</h1>'
@@ -123,7 +124,15 @@ class OrderItems(Resource):
 api.add_resource(OrderItems, '/order_items')
 
 class OrderItemsById(Resource):
+    def get(self, id):
+        order_items_by_id = OrderItem.query.filter(OrderItem.id == id).first()
+
+        response = make_response(order_items_by_id.to_dict(),200)
+
+        return response 
+    
     def patch(self, id):
+        print("THANKS ELEANOR")
         order_item = OrderItem.query.filter(OrderItem.id == id).first()
 
         if not order_item:
@@ -131,7 +140,7 @@ class OrderItemsById(Resource):
 
         request_json = request.get_json()
 
-        for key in request:
+        for key in request_json:
             setattr(order_item, key, request_json[key])
 
         db.session.add(order_item)
