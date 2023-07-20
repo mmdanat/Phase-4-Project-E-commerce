@@ -20,7 +20,7 @@ function ProductsPage({ products }){
 
 
     return (
-        <div className='product-page '>
+        <div className='product-page bg-green-900'>
             <NavBar/>
             <Search handleSearch={handleSearch} />
             <ProductCollection products={products} searchTerm={searchTerm} /> 
