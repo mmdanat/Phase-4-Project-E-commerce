@@ -1,5 +1,9 @@
 from app import app
 from models import db, User,Order,OrderItem,Product
+from faker import Faker
+
+fake = Faker()
+
 
 if __name__ == '__main__':
 
@@ -11,36 +15,80 @@ if __name__ == '__main__':
         OrderItem.query.delete()
         Product.query.delete()
 
-        u1 = User(name = "Mary", mail_address = "123 street", email_address = 'hi@hi.com')
-        u2 = User(name = "Alice", mail_address = "456 street", email_address = 'bye@bye.com')
-        users = [u1,u2]
-
-        db.session.add_all(users)
-        db.session.commit()
-
-        # Seed products
-        product1 = Product(name = "Watershed", image = "image", price = 20)
-        product2 = Product(name = "Hose", image = "image", price = 40)
-        products = [product1,product2]
+          # Seed products
+        products = [
+            Product (
+                name= "Shower Water",
+                image= "",
+                price= 200.00,
+                product_description = ""
+            ), 
+            Product (
+                name= "Hose Water",
+                image= "",
+                price= 300.00,
+                product_description = ""
+            ), 
+            Product (
+                name= "Thirsty?",
+                image= "",
+                price= 300.00,
+                product_description = ""
+            ), 
+            Product (
+                name= "Pool Day",
+                image= "",
+                price= 300.00,
+                product_description = ""
+            ), 
+             Product (
+                name= "Thirsty Thursday",
+                image= "",
+                price= 300.00,
+                product_description = ""
+            ), 
+            Product (
+                name= "Thirsty Thursday",
+                image= "",
+                price= 300.00,
+                product_description = ""
+            )
+        ]
 
         db.session.add_all(products)
         db.session.commit()
+        
+        
+        # Seed users
+        users = []
+        order_items = []
+        
+        for i in range (5):
+            fake_user = User(
+                name = fake.name(),
+                mail_address = fake.street_address(),
+                email_address = fake.email()
+            )
+            db.session.add(fake_user)
+            db.session.commit()
 
-        # Seed orders
-        order1 = Order(user_id = u1.id)
-        order2 = Order(user_id = u1.id)
-        orders = [order1,order2]
+            orders = []
+            orders.append(
+                Order(user_id = fake_user.id)
+            )
+            db.session.add_all(orders)
+            db.session.commit()
 
-        db.session.add_all(orders)
-        db.session.commit()
+            for order in orders:
+                product_id = products[0].id
+                order_items.append(
+                    OrderItem(order_id = order.id, product_id = product_id, quantity = 5) 
+                )
+            db.session.add_all(order_items)
+            db.session.commit()
 
-        # Seed order items
-        orderitem = OrderItem(order_id = order1.id, product_id = product1.id, quantity = 5)
-        orderitem2 = OrderItem(order_id = order2.id, product_id = product2.id, quantity = 6)
-        orderitems = [orderitem,orderitem2]
+      
 
-        db.session.add_all(orderitems)
-        db.session.commit()
 
         
 
