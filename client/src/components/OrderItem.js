@@ -3,7 +3,7 @@
 import { useState } from "react"
 
 // ADD BUTTON FOR REMOVING ITEM FROM ORDER?
-function OrderItem({ id, product_id, quantity }) {
+function OrderItem({ id, product_id, quantity, image, product_name }) {
 
     const [ updateQuantity, setUpdateQunatity ] = useState(quantity)
 
@@ -43,17 +43,20 @@ function OrderItem({ id, product_id, quantity }) {
     }
 
     return (
-        <div className="flex">
-            <ul>
-                <li>Product ID #: {product_id}</li>
-                <li>Quantity: {updateQuantity}</li>
-            </ul>
-            <form id={id} className="updateQuantity" onSubmit={submitPatch}>
-                <input type="text" inputMode="numeric" pattern="[0-9]*" className="updateQuantity rounded border p-2 w-14" name="updateQuantity" placeholder="" />
-            <button type="submit" className="update-quantity p-2 rounded text-white bg-black">
-                <i className="material-icons">update quantity</i>
-            </button>
-            </form>
+        <div className="bg-sky-100 rounded-md p-5 m-5 flex" >
+            <div className="flex-grow">
+                <p>{product_name}</p>
+                <div className="w-3/6 overflow-hidden"><img src={image} className="w-1/3 mt-2"></img></div>
+            </div>
+            <div className="flex">
+                <p className="justify-center">Quantity: {updateQuantity}</p>
+                <form id={id} className="updateQuantity" onSubmit={submitPatch}>
+                    <input type="text" inputMode="numeric" pattern="[0-9]*" className="updateQuantity rounded border p-2 w-14 h-10" name="updateQuantity" placeholder="" />
+                    <button type="submit" className="update-quantity p-2 rounded text-white bg-blue-700">
+                        <i className="material-icons text-sm">update</i>
+                    </button>
+                </form>
+            </div>
         </div>
     )
 }
