@@ -29,42 +29,40 @@ const CustomerInfo = ({addUser}) => {
     } 
   });
   return (
-    
-    <form onSubmit={formik.handleSubmit}>
-        <div>
-        <NavBar/>
-        <label htmlFor="email">Email Address</label>
-        <input
-            id="email_address"
-            name="email_address"
-            type="email_address"
-            onChange={formik.handleChange}
-            value={formik.values.email_address}
-        />
-        
-        <label htmlFor="name">Name</label>
-        <input
-            id="name"
-            name="name"
-            type="name"
-            onChange={formik.handleChange}
-            value={formik.values.name}
-        />
-
-        <label htmlFor="name">Mail Address</label>
-        <input
-            id="mail_address"
-            name="mail_address"
-            type="mail_address"
-            onChange={formik.handleChange}
-            value={formik.values.mail_address}
-        />
-
+    <>
+    <NavBar/>
+    <div className='flex justify-center'>
+      <form className="w-1/4 m-5" onSubmit={formik.handleSubmit}>
+        <div className='flex flex-col'>
+          <label className="mt-5" htmlFor="email">Email</label>
+          <input className="searchTerm rounded border p-2"
+              id="email_address"
+              name="email_address"
+              type="email_address"
+              onChange={formik.handleChange}
+              value={formik.values.email_address}
+          />
+          <label className="mt-5" htmlFor="name">Name</label>
+          <input className="searchTerm rounded border p-2"
+              id="name"
+              name="name"
+              type="name"
+              onChange={formik.handleChange}
+              value={formik.values.name}
+          />
+          <label className="mt-5" htmlFor="name">Address</label>
+          <input className="searchTerm rounded border p-2"
+              id="mail_address"
+              name="mail_address"
+              type="mail_address"
+              onChange={formik.handleChange}
+              value={formik.values.mail_address}
+          />
         </div>
-     
-
-      <button type="submit">Submit</button>
-    </form>
+        <button className="mt-5 p-2 rounded text-white bg-slate-500" type="submit">Submit</button>
+      </form>
+    </div>
+    </>
   );
 };
 

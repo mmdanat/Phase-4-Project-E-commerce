@@ -43,16 +43,16 @@ function OrderItem({ id, product_id, quantity, image, product_name }) {
     }
 
     return (
-        <div className="bg-sky-100 rounded-md p-5 m-5 flex" >
+        <div className="bg-blue-300/50 rounded-md p-5 m-5 flex" >
             <div className="flex-grow">
                 <p>{product_name}</p>
-                <div className="w-3/6 overflow-hidden"><img src={image} className="w-1/3 mt-2"></img></div>
+                <div className="h-20 w-auto container flex items-center overflow-hidden"><img src={image} className="w-1/3 mt-2"></img></div>
             </div>
-            <div className="flex">
-                <p className="justify-center">Quantity: {updateQuantity}</p>
-                <form id={id} className="updateQuantity" onSubmit={submitPatch}>
-                    <input type="text" inputMode="numeric" pattern="[0-9]*" className="updateQuantity rounded border p-2 w-14 h-10" name="updateQuantity" placeholder="" />
-                    <button type="submit" className="update-quantity p-2 rounded text-white bg-blue-700">
+            <div className="w-1/2 items-center flex justify-end">
+                <p className="">Quantity: {updateQuantity}</p>
+                <form id={id} className="m-2 updateQuantity" onSubmit={submitPatch}>
+                    <input type="text" inputMode="numeric" pattern="[0-9]*" className="updateQuantity m-2 rounded border p-2 w-12 h-8" name="updateQuantity" placeholder="" />
+                    <button type="submit" className="update-quantity p-1 rounded text-white bg-slate-500">
                         <i className="material-icons text-sm">update</i>
                     </button>
                 </form>

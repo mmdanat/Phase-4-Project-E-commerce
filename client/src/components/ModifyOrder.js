@@ -35,10 +35,14 @@ function ModifyOrder({ orders, order_items }) {
         <div>
             <NavBar />
             <div className="flex justify-center">
-                <Search handleSearch={handleSearch} />
-            </div>
-            <div className="flex justify-center">
-                {renderOrders}
+                <div className="flex flex-col w-3/4 ">
+                    <div className="flex justify-center">
+                        <Search handleSearch={handleSearch} />
+                    </div>
+                    <div className="flex flex-col justify-center">
+                        {renderOrders}
+                    </div>
+                </div>
             </div>
         </div>
     )

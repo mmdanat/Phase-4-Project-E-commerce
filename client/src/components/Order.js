@@ -38,14 +38,14 @@ function Order({ id, user_name, order_items, handleClick }) {
     )
 
     return (
-        <div className="bg-sky-300 rounded-md w-3/4 p-2">
+        <div className="m-2 flex flex-col bg-blue-200/50 rounded-md w-auto p-2">
             <div className="m-5 flex" >
                 <ul className="flex-grow">
                     <li>Order #: {id}</li>
                     <li>{user_name}</li>
                 </ul>
-                <button id={id} className="mr-2 p-2 rounded text-white bg-blue-700" onClick={handleClick}>Display Items</button>
-                <button id={id} className="mr-2 p-2 rounded text-white bg-blue-700" onClick = {() => handleDelete(id)}>Cancel Order</button>
+                <button id={id} className="mr-2 p-2 rounded text-white bg-slate-500" onClick={handleClick}>Display Items</button>
+                <button id={id} className="mr-2 p-2 rounded text-white bg-slate-500" onClick = {() => handleDelete(id)}>Cancel Order</button>
             </div>
             <div>
                 {showOrderItems ? [renderOrderItems] : <></>}

@@ -47,7 +47,7 @@ function App() {
     if (products.length > 0){
 
         return (
-        <div className = "body">
+        <div className = "body bg-yellow-50/50 h-screen">
         {/* <NavBar/> */}
         
         <Routes>
