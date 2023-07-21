@@ -12,8 +12,8 @@ function ProductCard({ name, image, price, id }) {
             <div className='px-6 py-4'>
                 <div className='font-bold text-xl mb-2'>{name}</div>
                 <p className='text-gray-700 text-base'>Price: ${price}</p>
-                <h1>cart quantity: {cart}</h1>
-                <button onClick={() => setCart(cart + 1)}>Add to Cart</button>
+                {/* <h1>cart quantity: {cart}</h1>
+                <button onClick={() => setCart(cart + 1)}>Add to Cart</button> */}
             </div>
         </div>
     )
