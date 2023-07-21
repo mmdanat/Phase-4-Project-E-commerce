@@ -52,7 +52,7 @@ function OrderItem({ id, product_id, quantity, image, product_name }) {
                 <p className="justify-center">Quantity: {updateQuantity}</p>
                 <form id={id} className="updateQuantity" onSubmit={submitPatch}>
                     <input type="text" inputMode="numeric" pattern="[0-9]*" className="updateQuantity rounded border p-2 w-14 h-10" name="updateQuantity" placeholder="" />
-                    <button type="submit" className="update-quantity p-2 rounded text-white bg-blue-700">
+                    <button type="submit" className="update-quantity p-2 rounded text-white bg-slate-500">
                         <i className="material-icons text-sm">update</i>
                     </button>
                 </form>

@@ -20,11 +20,13 @@ function ProductsPage({ products }){
 
 
     return (
-        <div className='product-page bg-green-900'>
+        <>
             <NavBar/>
-            <Search handleSearch={handleSearch} />
-            <ProductCollection products={products} searchTerm={searchTerm} /> 
-        </div>
+            <div className="flex justify-center "><Search handleSearch={handleSearch} /></div>
+            <div className='flex justify-center product-page'>
+                <div className='max-w-4xl p-10'><ProductCollection products={products} searchTerm={searchTerm} /></div>
+            </div>
+        </>
     )
 }
 
