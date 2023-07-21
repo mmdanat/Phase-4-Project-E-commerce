@@ -4,16 +4,14 @@ import { useEffect, useState } from "react";
 import ProductsPage from "./ProductsPage"
 import HomePage from "./HomePage"
 import ProductDetails from './ProductDetails';
-import ModifyOrder from './ModifyOrder'
-import CartReview from './CartReview';
+import ModifyOrder from './ModifyOrder';
 import CustomerInfo from './CustomerInfo';
-import NavBar from './NavBar';
 
 function App() {
 
-    const [products, setProducts] = useState([])
+    const [ products, setProducts ] = useState([])
     // eslint-disable-next-line
-    const [users, setUsers] = useState([])
+    const [ users, setUsers ] = useState([])
     const [ orders, setOrders ] = useState([])
     const [ order_items, setOrderItems ] = useState([])
     // const [ productId, setProductId ] = useState({})
