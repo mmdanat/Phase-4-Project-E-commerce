@@ -8,10 +8,6 @@ function ShoppingCart(){
 
         </div>
     )
-
-
-
-    
 }
 
 export default ShoppingCart;

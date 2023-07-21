@@ -18,8 +18,7 @@ function ProductCollection({ products, searchTerm }){
     
     return(
         <ul className = "cards flex flex-wrap">
-            {renderProductsToCards}
-            
+            {renderProductsToCards}            
         </ul>
     )
 }
