@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import NavBar from "./NavBar";
 
 function ProductDetails( ) {
 
@@ -14,7 +15,10 @@ function ProductDetails( ) {
     }, [params.productId])
 
     return(
+        <div>
+        <NavBar/>
         <div className="max-w-5xl rounded overflow-hidden shadow-lg auto-cols-auto px-3 py-3 bg-blue-100 m-6 center ">
+            
             <div className= "">
                 <img  className="w-full" src={productId.image} alt={productId.name} />
                 <div className='px-6 py-4'>
@@ -23,6 +27,7 @@ function ProductDetails( ) {
                     <p className="text-gray-700 text-base bold"><b>Price: $</b> {productId.price}</p>
             </div>
             </div>
+        </div>
         </div>
     )
 }
