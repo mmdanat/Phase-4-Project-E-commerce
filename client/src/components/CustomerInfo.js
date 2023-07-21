@@ -34,7 +34,7 @@ const CustomerInfo = ({addUser}) => {
     <div className='flex justify-center'>
       <form className="w-1/4 m-5" onSubmit={formik.handleSubmit}>
         <div className='flex flex-col'>
-          <label className="mt-5" htmlFor="email">Email Address</label>
+          <label className="mt-5" htmlFor="email">Email</label>
           <input className="searchTerm rounded border p-2"
               id="email_address"
               name="email_address"
@@ -50,7 +50,7 @@ const CustomerInfo = ({addUser}) => {
               onChange={formik.handleChange}
               value={formik.values.name}
           />
-          <label className="mt-5" htmlFor="name">Mail Address</label>
+          <label className="mt-5" htmlFor="name">Address</label>
           <input className="searchTerm rounded border p-2"
               id="mail_address"
               name="mail_address"
