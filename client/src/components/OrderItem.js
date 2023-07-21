@@ -43,7 +43,7 @@ function OrderItem({ id, product_id, quantity, image, product_name }) {
     }
 
     return (
-        <div className="bg-sky-100 rounded-md p-5 m-5 flex" >
+        <div className="bg-blue-300/50 rounded-md p-5 m-5 flex" >
             <div className="flex-grow">
                 <p>{product_name}</p>
                 <div className="w-3/6 overflow-hidden"><img src={image} className="w-1/3 mt-2"></img></div>

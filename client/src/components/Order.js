@@ -38,7 +38,7 @@ function Order({ id, user_name, order_items, handleClick }) {
     )
 
     return (
-        <div className="m-2 flex flex-col bg-blue-200 rounded-md w-auto p-2">
+        <div className="m-2 flex flex-col bg-blue-200/50 rounded-md w-auto p-2">
             <div className="m-5 flex" >
                 <ul className="flex-grow">
                     <li>Order #: {id}</li>
