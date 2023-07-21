@@ -11,9 +11,27 @@ function AddToCart(){
 
     return (
         <div>
+<<<<<<< HEAD
             <Link to='/products'><button className="mt-2 p-2 rounded text-white bg-slate-500" onClick={handleClick}>Purchase Water</button></Link>
+=======
+            <Link to='/products'><button className="mr-2 p-2 rounded text-white bg-blue-700" onClick={handleClick}>Purchase Water</button></Link>
+>>>>>>> main
         </div>
     )
 }
 
+<<<<<<< HEAD
 export default AddToCart;
+=======
+export default AddToCart;
+
+
+
+
+
+
+
+
+
+
+>>>>>>> main
