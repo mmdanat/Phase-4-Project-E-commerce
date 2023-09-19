@@ -10,9 +10,10 @@ function ProductsPage({ products }){
    
     function handleSearch(e) {
         e.preventDefault()
-        
+       
         setSearchTerm(e.target.searchTerm.value)
     }
+    
    
     return (
         <>

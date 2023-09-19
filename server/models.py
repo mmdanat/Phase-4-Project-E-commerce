@@ -2,7 +2,6 @@ from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy_serializer import SerializerMixin
 from sqlalchemy.orm import validates
 
-import time
 
 db = SQLAlchemy()
 
@@ -30,8 +29,6 @@ class User(db.Model,SerializerMixin):
     name = db.Column(db.String)
     mail_address= db.Column(db.String)
     email_address = db.Column(db.String) 
-
-    
 
     # Relationships
     orders = db.relationship('Order', backref = 'user')
